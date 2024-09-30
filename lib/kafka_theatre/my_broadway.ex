@@ -2,6 +2,7 @@ defmodule MyBroadway do
   use Broadway
 
   alias Broadway.Message
+  alias MyClient
 
   def start_link(_opts) do
     Broadway.start_link(__MODULE__,
@@ -34,14 +35,21 @@ defmodule MyBroadway do
   @impl true
   def handle_message(_, message, _) do
     message
-    |> Message.update_data(fn data -> {data, String.to_integer(data) * 2} end)
+    |> Message.update_data(&decode/1)
   end
 
   @impl true
   def handle_batch(_, messages, _, _) do
     list = messages |> Enum.map(fn e -> e.data end)
-    IO.inspect(list, label: "Got batch")
+    total_amount =
+      list
+      |> Enum.sum()
+    IO.inspect(list, label: "Got batch sum: #{total_amount}")
     messages
   end
 
+  defp decode(data) do
+    {:ok, decoded} = MyClient.decode(data)
+    decoded["amount"]
+  end
 end

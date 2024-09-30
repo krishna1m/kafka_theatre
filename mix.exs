@@ -23,7 +23,8 @@ defmodule KafkaTheatre.MixProject do
   defp deps do
     [
       {:avrora, "~> 0.27"},
-      {:broadway_kafka, "~> 0.3"}
+      {:broadway_kafka, "~> 0.3"},
+      {:jason, "~> 1.4"},
     ]
   end
 end

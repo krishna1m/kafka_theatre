@@ -13,7 +13,7 @@ defmodule MyBroadway do
            [
              hosts: [localhost: 29092],
              group_id: "group_1",
-             topics: ["test"]
+             topics: ["input"]
            ]},
         concurrency: 1
       ],

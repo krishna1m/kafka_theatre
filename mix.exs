@@ -22,6 +22,7 @@ defmodule KafkaTheatre.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:avrora, "~> 0.27"},
       {:broadway_kafka, "~> 0.3"}
     ]
   end

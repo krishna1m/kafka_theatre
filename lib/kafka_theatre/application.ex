@@ -10,7 +10,8 @@ defmodule KafkaTheatre.Application do
     children = [
       # Starts a worker by calling: KafkaTheatre.Worker.start_link(arg)
       # {KafkaTheatre.Worker, arg}
-      {MyBroadway, []}
+      {MyBroadway, []},
+      {MyClient, []},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

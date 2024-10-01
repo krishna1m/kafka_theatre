@@ -15,8 +15,10 @@ Once there, in the iex session, do
 TestItOut.test
 ```
 ## What it does?
-Kills all running docker containers
+```
+Kills all running docker containers.
 Tries to start pods that are required(zookeeper, kafka, schemaregistry).
 The Application creates a topic `input` automatically.
 When `iex` comes up, a consumer starts listening to the topic.
 We use `TestItOut.test` to publish some messages which are consumed and processed by the consumer.
+```

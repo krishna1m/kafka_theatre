@@ -1,21 +1,23 @@
 # KafkaTheatre
 
-**TODO: Add description**
-
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `kafka_theatre` to your list of dependencies in `mix.exs`:
-
+## Launch
+```bash
+docker stop $(docker ps -aq) && docker rm -v $(docker ps -aq)
+docker-compose up -d
+iex -S mix
+```
+Wait for this message to arrive
+```
+19:40:16.446 [info] client MyBroadway.Broadway.Producer_0.Client connected to localhost:29092
+```
+Once there, in the iex session, do
 ```elixir
-def deps do
-  [
-    {:kafka_theatre, "~> 0.1.0"}
-  ]
-end
+TestItOut.test
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/kafka_theatre>.
-
+## What it does?
+Kills all running docker containers
+Tries to start pods that are required(zookeeper, kafka, schemaregistry).
+The Application creates a topic `input` automatically.
+When `iex` comes up, a consumer starts listening to the topic.
+We use `TestItOut.test` to publish some messages which are consumed and processed by the consumer.

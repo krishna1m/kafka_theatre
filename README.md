@@ -1,5 +1,5 @@
 # KafkaTheatre
-
+[Demo link](https://drive.google.com/file/d/1zzBRqYoW9-_l55pJ921wqC5GX5EIjWbX/view?usp=sharing)
 ## Launch
 ```bash
 docker stop $(docker ps -aq) && docker rm -v $(docker ps -aq)
@@ -14,7 +14,6 @@ Once there, in the iex session, do
 ```elixir
 TestItOut.test
 ```
-
 ## What it does?
 Kills all running docker containers
 Tries to start pods that are required(zookeeper, kafka, schemaregistry).
